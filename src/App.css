@@ -17,6 +17,23 @@ input {
   margin-top: 10px;
 }
 
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  
+}
+
+.toppings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+h4 {
+  color: goldenrod
+}
+
 button {
   display: inline-block;
   width: 100px;
@@ -46,6 +63,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
   margin: 20px;
+  background-color: gray;
 }
 
 .pizza_link {
@@ -69,4 +87,6 @@ nav {
 img {
   width: 500px;
   height:600px;
+  border: 2px black dotted;
+  border-radius: 15px;
 }
