@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-// import * as yup from "yup";
+import React, { useState, useEffect } from "react";
+import * as yup from "yup";
 import axios from "axios";
 
 const PizzaForm = () => {
@@ -14,16 +14,53 @@ const PizzaForm = () => {
 	};
 
 	const [formState, setFormState] = useState(initialState);
-
+	const [errors, setErrors] = useState(initialState);
 	const [pizzaOrder, setPizzaOrder] = useState([]);
+
+	const formSchema = yup.object().shape({
+		name: yup.string().min(2, "Minimum of 2 characters please"),
+		size: yup.string(),
+		pepperoni: yup.boolean().oneOf([true]),
+		fourcheese: yup.boolean().oneOf([true]),
+		cheeseburger: yup.boolean().oneOf([true]),
+		works: yup.boolean().oneOf([true]),
+		special: yup.string(),
+	});
+
+	useEffect(() => {
+		console.log("pizza form changed");
+		formSchema.isValid(formState).then((valid) => {
+			console.log("valid form", valid);
+		});
+	}, [formState]);
+
+	const validateChange = (e) => {
+		yup
+			.reach(formSchema, e.target.name)
+			.validate(e.target.value)
+			.then((valid) => {
+				setErrors({
+					...errors,
+					[e.target.name]: "",
+				});
+			})
+			.catch((err) => {
+				setErrors({
+					...errors,
+					[e.target.name]: err.errors[0],
+				});
+			});
+	};
+
 	const inputChange = (e) => {
+		e.persist();
 		const newFormData = {
 			...formState,
 			[e.target.name]:
 				e.target.type === "checkbox" ? e.target.checked : e.target.value,
 		};
 
-		// validateChange(e); ADD THIS LATER
+		validateChange(e);
 		setFormState(newFormData);
 	};
 
@@ -53,6 +90,9 @@ const PizzaForm = () => {
 						placeholder="Please enter name."
 						onChange={inputChange}
 						value={formState.name}></input>
+					{errors.name.length > 0 ? (
+						<p className="error">{errors.name}</p>
+					) : null}
 				</label>
 				<label htmlFor="size">
 					Choose size

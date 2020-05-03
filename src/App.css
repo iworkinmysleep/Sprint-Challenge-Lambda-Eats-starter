@@ -90,3 +90,7 @@ img {
   border: 2px black dotted;
   border-radius: 15px;
 }
+
+p {
+  color:red;
+}
