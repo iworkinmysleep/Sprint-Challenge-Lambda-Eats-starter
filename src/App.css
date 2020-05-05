@@ -84,13 +84,31 @@ nav {
   color:black;
 }
 
-img {
-  width: 500px;
-  height:600px;
-  border: 2px black dotted;
-  border-radius: 15px;
-}
-
 p {
   color:red;
+}
+
+form {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.home img {
+  height: 300px;
+  width: 300px;
+  margin: 10px 15px;
+  border-radius: 15px;
+  box-shadow: 5px 10px orangered;
+}
+
+.home h1 {
+  color: darkslategray;
 }
