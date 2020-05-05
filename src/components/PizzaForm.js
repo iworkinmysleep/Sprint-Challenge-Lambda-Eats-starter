@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 const PizzaForm = () => {
 	const initialState = {
@@ -79,6 +80,12 @@ const PizzaForm = () => {
 
 	return (
 		<div className="pizza_page">
+			<nav>
+				<h1 className="header">Lambda Eats</h1>
+				<div className="pizza_link">
+					<Link to="/">Home</Link>
+				</div>
+			</nav>
 			<h3>Build Your Pizza</h3>
 			<form className="pizza_form" onSubmit={orderSubmit}>
 				<label htmlFor="name">

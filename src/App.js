@@ -7,13 +7,13 @@ import "./App.css";
 const App = () => {
 	return (
 		<div className="App">
-			<nav>
+			{/* <nav>
 				<h1 className="header">Lambda Eats</h1>
 				<div className="pizza_link">
 					<Link to="/pizza">Order Pizza</Link>
 					<Link to="/">Home</Link>
 				</div>
-			</nav>
+			</nav> */}
       <Route exact path="/" component={Home} />
       <Route path="/pizza" component={PizzaForm} />
 		</div>
