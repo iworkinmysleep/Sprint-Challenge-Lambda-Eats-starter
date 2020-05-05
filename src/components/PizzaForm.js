@@ -89,7 +89,8 @@ const PizzaForm = () => {
 						name="name"
 						placeholder="Please enter name."
 						onChange={inputChange}
-						value={formState.name}></input>
+						value={formState.name}
+						data-cy="name"></input>
 					{errors.name.length > 0 ? (
 						<p className="error">{errors.name}</p>
 					) : null}
@@ -112,7 +113,8 @@ const PizzaForm = () => {
 							name="pepperoni"
 							type="checkbox"
 							onChange={inputChange}
-							checked={formState.pepperoni}></input>
+							checked={formState.pepperoni}
+							data-cy="pepperoni"></input>
 					</label>
 					<label htmlFor="fourcheese">
 						4-Cheese
@@ -121,7 +123,8 @@ const PizzaForm = () => {
 							name="fourcheese"
 							type="checkbox"
 							onChange={inputChange}
-							checked={formState.fourcheese}></input>
+							checked={formState.fourcheese}
+							data-cy="fourcheese"></input>
 					</label>
 					<label htmlFor="cheeseburger">
 						Cheeseburger
@@ -139,7 +142,8 @@ const PizzaForm = () => {
 							name="works"
 							type="checkbox"
 							onChange={inputChange}
-							checked={formState.works}></input>
+							checked={formState.works}
+							data-cy="works"></input>
 					</label>
 				</div>
 				<label htmlFor="special">
